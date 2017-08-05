@@ -28,6 +28,11 @@ Router.map(function() {
     this.route('before');
     this.route('after');
   });
+
+  this.route('forward-params', function() {
+    this.route('before');
+    this.route('after');
+  });
 });
 
 export default Router;

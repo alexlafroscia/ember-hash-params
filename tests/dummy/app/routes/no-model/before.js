@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   beforeModel() {
     this.transitionTo('no-model.after', {
       hashParams: {
-        foo: true
+        foo: 'bar'
       }
     });
   }

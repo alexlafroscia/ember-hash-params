@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     this.transitionTo('with-query-params.after', {
       queryParams,
       hashParams: {
-        foo: true
+        foo: 'bar'
       }
     });
   }

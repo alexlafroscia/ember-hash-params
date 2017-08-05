@@ -13,24 +13,20 @@ export default Ember.Service.extend({
   },
 
   getParams() {
-    const url = get(this, 'router.currentURL');
+    const url = get(this, 'router.location.path');
     return parseHashParamsFrom(url);
   },
 
   setParam(prop, value) {
-    const url = get(this, 'router.currentURL');
-    const hashParams = parseHashParamsFrom(url);
+    const hashParams = this.getParams();
 
     hashParams[prop] = value;
 
-    const hash = buildHashFrom(hashParams);
-    const [baseURL] = url.split('#');
-
-    get(this, 'router.location').setURL(`${baseURL}#${hash}`);
+    this.setParams(hashParams);
   },
 
   setParams(obj) {
-    const url = get(this, 'router.currentURL');
+    const url = get(this, 'router.location.path');
     const [baseURL] = url.split('#');
 
     const hash = buildHashFrom(obj);

@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import parseHashParamsFrom from './utils/parse-hash-params';
 
 const { get, inject } = Ember;
 
@@ -25,20 +24,8 @@ export default Ember.Mixin.create({
     const transition = this._super(...args);
 
     if (hashParams) {
-      const savedHashParams = {};
-      const currentHashParams = parseHashParamsFrom(this.get('url'));
-
-      for (let key of Object.keys(hashParams)) {
-        const enabled = hashParams[key];
-        const value = currentHashParams[key];
-
-        if (enabled && value) {
-          savedHashParams[key] = value;
-        }
-      }
-
       transition.then(() => {
-        get(this, 'hashParams').setParams(savedHashParams);
+        get(this, 'hashParams').setParams(hashParams);
       });
     }
 

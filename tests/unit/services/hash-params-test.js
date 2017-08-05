@@ -7,7 +7,9 @@ moduleFor('service:hash-params', 'Unit | Service | hash params');
 test('it can read a single hash param from the URL', function(assert) {
   const service = this.subject({
     router: Ember.Object.create({
-      currentURL: '/path#foo=bar'
+      location: {
+        path: '/path#foo=bar'
+      }
     })
   });
 
@@ -17,7 +19,9 @@ test('it can read a single hash param from the URL', function(assert) {
 test('it can read all hash params from the URL', function(assert) {
   const service = this.subject({
     router: Ember.Object.create({
-      currentURL: '/path#foo=bar&baz=bop'
+      location: {
+        path: '/path#foo=bar&baz=bop'
+      }
     })
   });
 
@@ -34,8 +38,10 @@ test('it can set a single hash param in the URL', function(assert) {
 
   const service = this.subject({
     router: Ember.Object.create({
-      currentURL: '/path',
-      location: { setURL }
+      location: {
+        path: '/path',
+        setURL
+      }
     })
   });
 
@@ -51,8 +57,10 @@ test('it can set all hash params in the URL', function(assert) {
 
   const service = this.subject({
     router: Ember.Object.create({
-      currentURL: '/path',
-      location: { setURL }
+      location: {
+        path: '/path',
+        setURL
+      }
     })
   });
 
