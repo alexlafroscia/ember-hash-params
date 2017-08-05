@@ -1,10 +1,11 @@
 import Ember from 'ember';
 import parseHashParamsFrom from './utils/parse-hash-params';
-import buildHashFrom from './utils/build-hash-from';
 
-const { get } = Ember;
+const { get, inject } = Ember;
 
 export default Ember.Mixin.create({
+  hashParams: inject.service(),
+
   transitionTo(...args) {
     const { hashParams } = args[args.length - 1];
 
@@ -37,13 +38,7 @@ export default Ember.Mixin.create({
       }
 
       transition.then(() => {
-        const url = get(this, 'url');
-        const hash = buildHashFrom(savedHashParams);
-
-        if (hash) {
-          const path = `${url}#${hash}`;
-          get(this, 'location').setURL(path);
-        }
+        get(this, 'hashParams').setParams(savedHashParams);
       });
     }
 
