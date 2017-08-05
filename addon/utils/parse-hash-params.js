@@ -5,8 +5,12 @@ export default function parseHashParamsFrom(url) {
   let { hash } = parser;
   hash = hash.substr(1);
 
+  if (!hash) {
+    return {};
+  }
+
   return hash
-    .split(',')
+    .split('&')
     .map(pair => pair.split('='))
     .reduce((acc, [key, value]) => {
       acc[key] = value;

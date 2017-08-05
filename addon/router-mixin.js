@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import parseHashParamsFrom from './util/parse-hash-params';
-import buildHashFrom from './util/build-hash-from';
+import parseHashParamsFrom from './utils/parse-hash-params';
+import buildHashFrom from './utils/build-hash-from';
 
 const { get } = Ember;
 

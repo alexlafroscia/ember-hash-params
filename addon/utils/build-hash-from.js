@@ -4,7 +4,7 @@ export default function buildHashFrom(object) {
     const pair = `${key}=${value}`;
 
     if (acc) {
-      return `${acc},${pair}`;
+      return `${acc}&${pair}`;
     } else {
       return pair;
     }
