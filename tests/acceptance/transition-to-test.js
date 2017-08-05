@@ -26,3 +26,9 @@ test('when query params are defined and provided', async function(assert) {
 
   assert.equal(currentURL(), '/with-query-params/after?foo=bar#foo=bar');
 });
+
+test("it doesn't mess with a name-only transition", async function(assert) {
+  await visit('/name-only/before');
+
+  assert.equal(currentURL(), '/name-only/after');
+});

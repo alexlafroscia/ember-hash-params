@@ -23,6 +23,11 @@ Router.map(function() {
     this.route('before');
     this.route('after');
   });
+
+  this.route('name-only', function() {
+    this.route('before');
+    this.route('after');
+  });
 });
 
 export default Router;
