@@ -26,6 +26,8 @@ const Router = Ember.Router.extend(HashParamSupport, {
 // ...
 ```
 
+**Note:** This addon depends on the [router service polyfill](https://github.com/rwjblue/ember-router-service-polyfill). It will only be included if your Ember version is less than 2.15; you *do not* have to install it yourself.
+
 ## Usage
 
 ### Transitioning with Hash Params
