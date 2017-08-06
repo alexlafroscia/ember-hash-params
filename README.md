@@ -9,6 +9,20 @@ To send data into an Ember application, you usually want to do one of two things
 
 However, in some cases you might not be able to use either -- if, for example, your URL contains information that you don't want to log to the server. In these cases it can be useful to define parameters through the [hash][hash]; this addon makes this (somewhat) easier.
 
+For example, you might want to send out a URL to your users that contain some kind of data that might be considered [PII][pii]. It could look like this:
+
+```txt
+https://my-cool-deal-site.com#discount-code=123456
+```
+
+That discount code probably shouldn't be logged to your servers, so a query param or URL segment won't do. Since hashes aren't seen by the server, but are seen by the client, it can be a method for communicating without exposing PII to your server logs.
+
+Throughout this documentation (and the code) when I refer to a `hash param`, I mean a key-value pair like the one in the URL above. Like query params, they are delimited by an `&`, so a couple of params would look like:
+
+```txt
+https://my-cool-deal-site.com#discount-code=123456&postal-code=94041
+```
+
 ## Installation
 
 ```bash
@@ -96,3 +110,4 @@ However, if you _have_ to use hash params (as I do) then this provides an interf
 [dynamic-segment]: https://guides.emberjs.com/v2.14.0/routing/specifying-a-routes-model/#toc_dynamic-models
 [query-param]: https://guides.emberjs.com/v2.14.0/routing/query-params/
 [hash]: https://www.w3schools.com/jsref/prop_loc_hash.asp
+[pii]: https://en.wikipedia.org/wiki/Personally_identifiable_information
