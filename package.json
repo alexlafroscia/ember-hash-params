@@ -1,7 +1,7 @@
 {
   "name": "ember-hash-params",
   "version": "1.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Utils for getting/setting hash params in Ember",
   "keywords": [
     "ember-addon"
   ],
