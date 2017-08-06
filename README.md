@@ -1,5 +1,7 @@
 # ember-hash-params
 
+[![Build Status](https://travis-ci.org/alexlafroscia/ember-hash-params.svg?branch=master)](https://travis-ci.org/alexlafroscia/ember-hash-params)
+
 To send data into an Ember application, you usually want to do one of two things:
 
 1. Define a [dynamic segment][dynamic-segment] in the URL
